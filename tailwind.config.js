@@ -22,6 +22,7 @@ export default withMT({
     },
     fontFamily: {
       stylish: ["Lobster", "sans-serif"],
+      roboto:["Roboto", "sans-serif"]
     },
   },
   plugins: [],

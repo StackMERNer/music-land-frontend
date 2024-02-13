@@ -36,17 +36,15 @@ export function Sidebar() {
   const [open, setOpen] = React.useState(0);
   const [openAlert, setOpenAlert] = React.useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
-
   const handleOpen = (value: number) => {
     setOpen(open === value ? 0 : value);
   };
-
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
 
   return (
     <>
-      <IconButton className="text-white" variant="text" size="lg" onClick={openDrawer}>
+      <IconButton className="text-gray-400" variant="text" size="lg" onClick={openDrawer}>
         {isDrawerOpen ? (
           <XMarkIcon className="h-8 w-8 stroke-2" />
         ) : (
