@@ -4,9 +4,9 @@ const Header = () => {
   return (
     <nav>
       <div className="container mx-auto px-5 py-1 flex items-center justify-between">
-        <div className="flex items-center gap-2 py-1 ">
+        <div className="flex items-center gap-4 py-1 ">
           <Sidebar />
-          <h2 className="font-stylish text-xl">
+          <h2 className="font-stylish md:text-2xl text-xl">
             <span className="text-primary-yellow">Music</span>
             <span className="text-white">Land</span>
           </h2>

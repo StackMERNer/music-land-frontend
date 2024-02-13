@@ -45,7 +45,7 @@ export function Sidebar() {
   return (
     <>
       <button
-        className="text-gray-400 border border-primary-yellow/[.34] p-[2px] rounded"
+        className="text-gray-400 border border-primary-yellow/[.34] shadow-[0_0_3px] shadow-primary-yellow p-[2px] rounded"
         onClick={openDrawer}
       >
         {isDrawerOpen ? (
