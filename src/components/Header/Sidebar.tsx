@@ -44,13 +44,16 @@ export function Sidebar() {
 
   return (
     <>
-      <IconButton className="text-gray-400" variant="text" size="lg" onClick={openDrawer}>
+      <button
+        className="text-gray-400 border border-primary-yellow/[.34] p-[2px] rounded"
+        onClick={openDrawer}
+      >
         {isDrawerOpen ? (
           <XMarkIcon className="h-8 w-8 stroke-2" />
         ) : (
           <Bars3Icon className="h-8 w-8 stroke-2" />
         )}
-      </IconButton>
+      </button>
       <Drawer open={isDrawerOpen} onClose={closeDrawer}>
         <Card
           color="transparent"

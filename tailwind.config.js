@@ -17,7 +17,11 @@ export default withMT({
         soft: "#183B56",
       },
       primary:{
-        yellow:"#FFF500"
+        yellow:"#FFF500",
+      },
+      green:{
+        dark:"#073B3A",
+        light:"#32CD32"
       }
     },
     fontFamily: {

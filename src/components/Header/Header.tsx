@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <nav>
       <div className="container mx-auto px-5 py-1 flex items-center justify-between">
-        <div className="flex items-center">
+        <div className="flex items-center gap-2 py-1 ">
           <Sidebar />
           <h2 className="font-stylish text-xl">
             <span className="text-primary-yellow">Music</span>
