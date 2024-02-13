@@ -16,7 +16,7 @@ const Header = () => {
         </div>
       </div>
       <span
-        className={`h-[5px] bg-clip-border-[20] block w-full mt-1 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 [clip-path:polygon(0%_0%,50%_100%,100%_0%)]`}
+        className={`h-[2px]  block w-full mt-1 bg-gradient-to-br from-yellow-500 via-green-light [clip-path:polygon(0%_0%,50%_100%,100%_0%)]`}
       ></span>
     </nav>
   );
