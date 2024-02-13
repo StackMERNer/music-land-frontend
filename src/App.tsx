@@ -1,10 +1,13 @@
-import { useState } from "react";
-
 import "./App.css";
+import { Button } from "@material-tailwind/react";
+import Header from "./components/Header/Header";
 
 function App() {
-  const [count, setCount] = useState(0);
-  return <h1 className="text-3xl font-bold underline">Hello worxld!</h1>;
+  return (
+    <div className="bg-dark-solid">
+      <Header />
+    </div>
+  );
 }
 
 export default App;
