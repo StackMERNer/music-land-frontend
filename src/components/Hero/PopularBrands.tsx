@@ -3,7 +3,7 @@ import brand2 from "./../../assets/icons/fender.png";
 import brand3 from "./../../assets/icons/gibson.png";
 import brand4 from "./../../assets/icons/martin.png";
 import brand5 from "./../../assets/icons/yamha.png";
-import "./popularBrands.css";
+
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -37,29 +37,32 @@ const PopularBrands = () => {
     <>
       <Slider
         arrows={false}
+        cssEase='linear'
         autoplaySpeed={0}
         centerMode={false}
-        className="text-white hidden sm:block"
-        slidesToShow={4}
+        className="text-white items-center gap-3 flex"
+        slidesToShow={6}
+        slidesToScroll={1}
+        variableWidth={true}
+        responsive={[
+          {
+            breakpoint: 540,
+            settings: {
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint: 340,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+        ]}
         {...settings}
       >
         {brands.map((brand, index) => (
-          <div key={index} className="brand">
-            <img src={brand.src} className="w-[100px]" alt="brand" />
-          </div>
-        ))}
-      </Slider>
-      <Slider
-        arrows={false}
-        autoplaySpeed={0}
-        centerMode={false}
-        className="text-white sm:hidden"
-        slidesToShow={2}
-        {...settings}
-      >
-        {brands.map((brand, index) => (
-          <div key={index} className="brand">
-            <img src={brand.src} className="w-[100px]" alt="brand" />
+          <div key={index} >
+            <img src={brand.src} className="w-[100px]  " alt="brand" />
           </div>
         ))}
       </Slider>
