@@ -31,6 +31,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import Logo from "./Logo";
 
 export function Sidebar() {
   const [open, setOpen] = React.useState(0);
@@ -45,7 +46,7 @@ export function Sidebar() {
   return (
     <>
       <button
-        className="text-gray-400 border border-primary-yellow/[.34] shadow-[0_0_3px] shadow-primary-yellow p-[2px] rounded"
+        className="text-gray-400  shadow-[0_0_3px] shadow-primary-yellow p-[1px] rounded"
         onClick={openDrawer}
       >
         {isDrawerOpen ? (
@@ -54,11 +55,11 @@ export function Sidebar() {
           <Bars3Icon className="h-8 w-8 stroke-2" />
         )}
       </button>
-      <Drawer open={isDrawerOpen} onClose={closeDrawer}>
+      <Drawer open={isDrawerOpen} className="bg-dark-solid " onClose={closeDrawer}>
         <Card
           color="transparent"
           shadow={false}
-          className="h-[calc(100vh-2rem)] w-full p-4"
+          className="h-[calc(100vh-2rem)] w-full p-4 "
         >
           <div className="mb-2 flex items-center gap-4 p-4">
             <img
@@ -66,9 +67,7 @@ export function Sidebar() {
               alt="brand"
               className="h-8 w-8"
             />
-            <Typography variant="h5" color="blue-gray">
-              Sidebar
-            </Typography>
+            <Logo/>
           </div>
           <div className="p-2">
             <Input
@@ -97,7 +96,7 @@ export function Sidebar() {
                   <ListItemPrefix>
                     <PresentationChartBarIcon className="h-5 w-5" />
                   </ListItemPrefix>
-                  <Typography color="blue-gray" className="mr-auto font-normal">
+                  <Typography  className="mr-auto text-white font-normal">
                     Dashboard
                   </Typography>
                 </AccordionHeader>
@@ -144,7 +143,7 @@ export function Sidebar() {
                   <ListItemPrefix>
                     <ShoppingBagIcon className="h-5 w-5" />
                   </ListItemPrefix>
-                  <Typography color="blue-gray" className="mr-auto font-normal">
+                  <Typography  className="mr-auto text-white font-normal">
                     E-Commerce
                   </Typography>
                 </AccordionHeader>
@@ -167,7 +166,7 @@ export function Sidebar() {
               </AccordionBody>
             </Accordion>
             <hr className="my-2 border-blue-gray-50" />
-            <ListItem>
+            {/* <ListItem>
               <ListItemPrefix>
                 <InboxIcon className="h-5 w-5" />
               </ListItemPrefix>
@@ -177,8 +176,8 @@ export function Sidebar() {
                   value="14"
                   size="sm"
                   variant="ghost"
-                  color="blue-gray"
-                  className="rounded-full"
+                  
+                   text-whiteclassName="rounded-full"
                 />
               </ListItemSuffix>
             </ListItem>
@@ -193,7 +192,7 @@ export function Sidebar() {
                 <Cog6ToothIcon className="h-5 w-5" />
               </ListItemPrefix>
               Settings
-            </ListItem>
+            </ListItem> */}
             <ListItem>
               <ListItemPrefix>
                 <PowerIcon className="h-5 w-5" />

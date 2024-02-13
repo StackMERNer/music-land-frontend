@@ -8,7 +8,7 @@ const Hero = () => {
           All The <br />
           Musical Instruments <br /> In One Shop
         </h1>
-        <p className="text-gray-600 text-sm mt-2 font-stylish">
+        <p className="text-gray-600 text-sm mt-5 font-stylish">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam,
           minus quo voluptatum eos voluptatem nihil saepe doloremque, corrupti
           incidunt repellendus accusamus voluptate fuga illum unde praesentium,
