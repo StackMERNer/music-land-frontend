@@ -3,7 +3,7 @@ import { Sidebar } from "./Sidebar";
 
 const Header = () => {
   return (
-    <nav className="sticky left-0 right-0 top-0 z-10 bg-dark-solid opacity-80">
+    <nav className="sticky left-0 right-0 top-0 z-10 bg-dark-solid ">
       <div className="container mx-auto px-5 py-1 flex items-center justify-between">
         <div className="flex items-center gap-4 py-1 ">
           <Sidebar />

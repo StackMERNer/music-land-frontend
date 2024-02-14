@@ -33,7 +33,7 @@ const PopularBrands = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 3000,
+    speed: 6000,
     autoplay: true,
   };
   return (
@@ -43,7 +43,7 @@ const PopularBrands = () => {
         cssEase="linear"
         autoplaySpeed={0}
         centerMode={false}
-        className="text-white items-center gap-3 flex"
+        className="text-white items-center gap-3 flex px-5"
         slidesToShow={6}
         slidesToScroll={1}
         initialSlide={0}

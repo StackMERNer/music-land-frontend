@@ -1,6 +1,7 @@
 import heroImage from "./../../assets/hero.png";
 import "./hero.css";
 import PopularBrands from "./PopularBrands";
+import PopularCategories from "./PopularCategories";
 const Hero = () => {
   return (
     <section>
@@ -45,6 +46,7 @@ const Hero = () => {
         </div>
       </div>
       <PopularBrands />
+      <PopularCategories />
     </section>
   );
 };
