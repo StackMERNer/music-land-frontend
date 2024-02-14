@@ -3,11 +3,11 @@ import { Sidebar } from "./Sidebar";
 
 const Header = () => {
   return (
-    <nav>
+    <nav className="sticky left-0 right-0 top-0 z-10 bg-dark-solid opacity-80">
       <div className="container mx-auto px-5 py-1 flex items-center justify-between">
         <div className="flex items-center gap-4 py-1 ">
           <Sidebar />
-          <Logo/>
+          <Logo />
         </div>
         <div className="font-roboto font-semibold">
           <button className="px-4 py-1 rounded-full bg-primary-yellow text-black text-[12px]">

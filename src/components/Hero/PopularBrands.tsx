@@ -8,8 +8,10 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./popularBrands.css";
 const PopularBrands = () => {
   const brands = [
+    
     {
       src: brand1,
     },
@@ -25,6 +27,7 @@ const PopularBrands = () => {
     {
       src: brand5,
     },
+    
   ];
 
   const settings = {
@@ -37,12 +40,13 @@ const PopularBrands = () => {
     <>
       <Slider
         arrows={false}
-        cssEase='linear'
+        cssEase="linear"
         autoplaySpeed={0}
         centerMode={false}
         className="text-white items-center gap-3 flex"
         slidesToShow={6}
         slidesToScroll={1}
+        initialSlide={0}
         variableWidth={true}
         responsive={[
           {
@@ -61,8 +65,11 @@ const PopularBrands = () => {
         {...settings}
       >
         {brands.map((brand, index) => (
-          <div key={index} >
-            <img src={brand.src} className="w-[100px]  " alt="brand" />
+          <div
+            key={index}
+            className="mx-5 flex justify-center items-center h-full"
+          >
+            <img src={brand.src} className="w-[100px] h-[60px]  " alt="brand" />
           </div>
         ))}
       </Slider>
