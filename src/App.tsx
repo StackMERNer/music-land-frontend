@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 
@@ -8,7 +9,9 @@ function App() {
       <Header />
       <div className="container mx-auto p-5">
         <Hero />
+        
       </div>
+      <Footer/>
     </div>
   );
 }
