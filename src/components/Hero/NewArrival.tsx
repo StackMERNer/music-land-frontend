@@ -8,9 +8,9 @@ const NewArrival = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 py-7 px-5 items-center">
         <div className="w-full h-[400px]  flex justify-center items-center relative">
-          <span className="h-[80px] w-[80px] bg-green-light opacity-30 absolute rounded-lg z-0 right-[5%] bottom-[10%]"></span>
-          <span className="h-[80px] w-[80px] bg-green-light opacity-30 absolute rounded-lg z-0 top-[10%] left-[5%]"></span>
-          <div className="shadow-[0_0_4px] shadow-primary-yellow rounded-lg overflow-hidden  w-[80%] z-10">
+          <span className="h-[80px] w-[80px] bg-green-light opacity-30 absolute rounded-lg z-0 right-[5%] bottom-[25%] sm:bottom-[10%]"></span>
+          <span className="h-[80px] w-[80px] bg-green-light opacity-30 absolute rounded-lg z-0 top-[20%] sm:top-[10%]  left-[5%]"></span>
+          <div className="shadow-[0_0_4px] shadow-primary-yellow rounded-lg overflow-hidden  w-[80%] z-[1]">
             <img src={drums} alt="" />
           </div>
         </div>
@@ -26,7 +26,7 @@ const NewArrival = () => {
             similique, totam consequuntur ut accusantium.
           </p>
           <p className="text-gray-200 text-2xl font-bold py-3">৳ 688 /-</p>
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-col sm:flex-row">
             <button className="px-5 py-2  bg-primary-yellow font-roboto text-sm font-semibold">
               Add to cart
             </button>
