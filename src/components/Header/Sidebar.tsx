@@ -32,6 +32,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Logo from "./Logo";
+import Hamburger from "./Hamburger";
 
 export function Sidebar() {
   const [open, setOpen] = React.useState(0);
@@ -42,10 +43,10 @@ export function Sidebar() {
   };
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
-
+  const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
   return (
     <>
-      <button
+      {/* <button
         className="text-gray-400  shadow-[0_0_3px] shadow-primary-yellow p-[1px] rounded"
         onClick={openDrawer}
       >
@@ -54,20 +55,21 @@ export function Sidebar() {
         ) : (
           <Bars3Icon className="h-8 w-8 stroke-2" />
         )}
-      </button>
-      <Drawer open={isDrawerOpen} className="bg-dark-solid " onClose={closeDrawer}>
+      </button> */}
+      <Hamburger toggleDrawer={toggleDrawer} isOpen={isDrawerOpen} />
+      <Drawer
+        open={isDrawerOpen}
+        className="bg-dark-solid "
+        onClose={closeDrawer}
+      >
         <Card
           color="transparent"
           shadow={false}
           className="h-[calc(100vh-2rem)] w-full p-4 "
         >
-          <div className="mb-2 flex items-center gap-4 p-4">
-            <img
-              src="https://docs.material-tailwind.com/img/logo-ct-dark.png"
-              alt="brand"
-              className="h-8 w-8"
-            />
-            <Logo/>
+          <div className="mb-2 flex items-center gap-4 p-4 justify-between">
+            <Logo />
+            <Hamburger toggleDrawer={toggleDrawer} isOpen={isDrawerOpen} />
           </div>
           <div className="p-2">
             <Input
@@ -96,7 +98,7 @@ export function Sidebar() {
                   <ListItemPrefix>
                     <PresentationChartBarIcon className="h-5 w-5" />
                   </ListItemPrefix>
-                  <Typography  className="mr-auto text-white font-normal">
+                  <Typography className="mr-auto text-white font-normal">
                     Dashboard
                   </Typography>
                 </AccordionHeader>
@@ -143,7 +145,7 @@ export function Sidebar() {
                   <ListItemPrefix>
                     <ShoppingBagIcon className="h-5 w-5" />
                   </ListItemPrefix>
-                  <Typography  className="mr-auto text-white font-normal">
+                  <Typography className="mr-auto text-white font-normal">
                     E-Commerce
                   </Typography>
                 </AccordionHeader>
