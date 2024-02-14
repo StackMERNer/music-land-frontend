@@ -6,7 +6,7 @@ const NewArrival = () => {
       <h1 className="text-center text-xl font-bold font-roboto text-gray-400 ">
         New Arrival
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 py-7 px-5 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 py-7 px-5 items-center gap-5">
         <div className="w-full h-[400px]  flex justify-center items-center relative">
           <span className="h-[80px] w-[80px] bg-green-light opacity-30 absolute rounded-lg z-0 right-[5%] bottom-[25%] sm:bottom-[10%]"></span>
           <span className="h-[80px] w-[80px] bg-green-light opacity-30 absolute rounded-lg z-0 top-[20%] sm:top-[10%]  left-[5%]"></span>
@@ -22,8 +22,7 @@ const NewArrival = () => {
           <p className="font-stylish clear-start text-gray-500">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae
             atque vero, iure veritatis, ad beatae praesentium laudantium
-            reprehenderit debitis commodi quam id temporibus dicta optio
-            similique, totam consequuntur ut accusantium.
+            reprehenderit debitis commodi quam id temporibus dicta
           </p>
           <p className="text-gray-200 text-2xl font-bold py-3">৳ 688 /-</p>
           <div className="flex gap-3 flex-col sm:flex-row">
