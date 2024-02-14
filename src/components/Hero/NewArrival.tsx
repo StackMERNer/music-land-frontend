@@ -22,7 +22,7 @@ const NewArrival = () => {
           <p className="font-stylish clear-start text-gray-500">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae
             atque vero, iure veritatis, ad beatae praesentium laudantium
-            reprehenderit debitis commodi quam id temporibus dicta
+            reprehenderit debitis commodi quam id temporibus dicta..
           </p>
           <p className="text-gray-200 text-2xl font-bold py-3">৳ 688 /-</p>
           <div className="flex gap-3 flex-col sm:flex-row">
