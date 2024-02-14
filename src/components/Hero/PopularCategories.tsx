@@ -34,39 +34,15 @@ const PopularCategories = () => {
     },
   ];
 
-  // function SampleNextArrow(props) {
-  //   const { className, style, onClick } = props;
-  //   return (
-  //     <div
-  //       className={className + " rounded-full"}
-  //       style={{ ...style, display: "block", background: "red" }}
-  //       onClick={onClick}
-  //     />
-  //   );
-  // }
-
-  // function SamplePrevArrow(props) {
-  //   const { className, style, onClick } = props;
-  //   return (
-  //     <div
-  //       className={className}
-  //       style={{ ...style, display: "block", background: "green" }}
-  //       onClick={onClick}
-  //     />
-  //   );
-  // }
-
   return (
     <section className="px-5">
       <h1 className="text-center text-xl font-bold font-roboto text-gray-400 py-6">
         Popular Categories
       </h1>
       <Slider
+        speed={400}
         slidesToScroll={1}
         variableWidth={true}
-        // nextArrow={<SampleNextArrow />}
-        // prevArrow={<SamplePrevArrow />}
-        
         responsive={[
           {
             breakpoint: 540,

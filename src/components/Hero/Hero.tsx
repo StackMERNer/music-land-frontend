@@ -1,6 +1,7 @@
 import heroImage from "./../../assets/hero.png";
 import "./hero.css";
 import NewArrival from "./NewArrival";
+import OurCommitments from "./OurCommitments";
 import PopularBrands from "./PopularBrands";
 import PopularCategories from "./PopularCategories";
 const Hero = () => {
@@ -49,6 +50,7 @@ const Hero = () => {
       <PopularBrands />
       <PopularCategories />
       <NewArrival />
+      <OurCommitments />
     </section>
   );
 };
