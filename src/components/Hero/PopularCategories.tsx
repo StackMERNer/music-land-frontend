@@ -57,7 +57,7 @@ const PopularCategories = () => {
   // }
 
   return (
-    <div className="px-5">
+    <section className="px-5">
       <h1 className="text-center text-xl font-bold font-roboto text-gray-400 py-6">
         Popular Categories
       </h1>
@@ -107,7 +107,7 @@ const PopularCategories = () => {
           </div>
         ))}
       </div> */}
-    </div>
+    </section>
   );
 };
 
