@@ -1,38 +1,30 @@
-import React from "react";
 import {
-  IconButton,
-  Typography,
+  ChevronDownIcon,
+  ChevronRightIcon,
+  CubeTransparentIcon,
+  MagnifyingGlassIcon
+} from "@heroicons/react/24/outline";
+import {
+  PowerIcon,
+  PresentationChartBarIcon,
+  ShoppingBagIcon
+} from "@heroicons/react/24/solid";
+import {
+  Accordion,
+  AccordionBody,
+  AccordionHeader,
+  Alert,
+  Card,
+  Drawer,
+  Input,
   List,
   ListItem,
   ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-  Alert,
-  Input,
-  Drawer,
-  Card,
+  Typography
 } from "@material-tailwind/react";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-} from "@heroicons/react/24/solid";
-import {
-  ChevronRightIcon,
-  ChevronDownIcon,
-  CubeTransparentIcon,
-  MagnifyingGlassIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-import Logo from "./Logo";
+import React from "react";
 import Hamburger from "./Hamburger";
+import Logo from "./Logo";
 
 export function Sidebar() {
   const [open, setOpen] = React.useState(0);
@@ -41,21 +33,10 @@ export function Sidebar() {
   const handleOpen = (value: number) => {
     setOpen(open === value ? 0 : value);
   };
-  const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
   const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
   return (
     <>
-      {/* <button
-        className="text-gray-400  shadow-[0_0_3px] shadow-primary-yellow p-[1px] rounded"
-        onClick={openDrawer}
-      >
-        {isDrawerOpen ? (
-          <XMarkIcon className="h-8 w-8 stroke-2" />
-        ) : (
-          <Bars3Icon className="h-8 w-8 stroke-2" />
-        )}
-      </button> */}
       <Hamburger toggleDrawer={toggleDrawer} isOpen={isDrawerOpen} />
       <Drawer
         open={isDrawerOpen}
@@ -145,7 +126,7 @@ export function Sidebar() {
                   <ListItemPrefix>
                     <ShoppingBagIcon className="h-5 w-5" />
                   </ListItemPrefix>
-                  <Typography className="mr-auto text-white font-normal">
+                  <Typography className="mr-auto text-white font-normal ">
                     E-Commerce
                   </Typography>
                 </AccordionHeader>
