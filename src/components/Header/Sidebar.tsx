@@ -1,52 +1,34 @@
 import {
   ChevronDownIcon,
   ChevronRightIcon,
-  CubeTransparentIcon,
-  MagnifyingGlassIcon,
+  MagnifyingGlassIcon
 } from "@heroicons/react/24/outline";
 import {
   PowerIcon,
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
+  PresentationChartBarIcon
 } from "@heroicons/react/24/solid";
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
-  Alert,
   Card,
   Drawer,
   Input,
   List,
   ListItem,
   ListItemPrefix,
-  Typography,
+  Typography
 } from "@material-tailwind/react";
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import useCategories from "../../hooks/useCategories";
+import { DefaultSkeleton } from "../Skeletons/DefaultSkeleton";
 import Hamburger from "./Hamburger";
 import Logo from "./Logo";
-import { Link } from "react-router-dom";
 
-// interface Instrument extends Document {
-//   name: string;
-//   modelNumber: string;
-//   category: string;
-//   instrumentGroup: string;
-//   price: number;
-//   brand: string;
-//   images: string[];
-//   description: string;
-//   quantity: number;
-//   keywords: string[];
-//   specifications: {
-//     [key: string]: string | number;
-//   };
-// }
 
 export function Sidebar() {
   const [open, setOpen] = useState<null | number>(null);
-  // const [openAlert, setOpenAlert] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const handleOpen = (value: number) => {
     setOpen(open === value ? null : value);
@@ -55,7 +37,7 @@ export function Sidebar() {
   const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
 
   const { categories, isLoading, error } = useCategories();
-  // console.log(isLoading);
+
   return (
     <>
       <Hamburger toggleDrawer={toggleDrawer} isOpen={isDrawerOpen} />
@@ -80,6 +62,10 @@ export function Sidebar() {
               label="Search"
             />
           </div>
+          {error && (
+            <div className="text-white p-5 font-roboto">{error?.message}</div>
+          )}
+          {isLoading && <DefaultSkeleton />}
           <List className="min-h-[60vh] overflow-y-scroll scrollbar-none">
             {categories.map((category, index) => (
               <Accordion
