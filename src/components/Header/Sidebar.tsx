@@ -26,6 +26,7 @@ import React, { useState } from "react";
 import useCategories from "../../hooks/useCategories";
 import Hamburger from "./Hamburger";
 import Logo from "./Logo";
+import { Link } from "react-router-dom";
 
 // interface Instrument extends Document {
 //   name: string;
@@ -109,15 +110,24 @@ export function Sidebar() {
                 <AccordionBody className="py-1">
                   <List className="p-0">
                     {category.subCategories.map((sCategory, index) => (
-                      <ListItem key={index}>
-                        <ListItemPrefix>
-                          <ChevronRightIcon
-                            strokeWidth={3}
-                            className="h-3 w-5"
-                          />
-                        </ListItemPrefix>
-                        {sCategory}
-                      </ListItem>
+                      <Link
+                        key={index}
+                        state={{
+                          category: category.category,
+                          subCategory: sCategory,
+                        }}
+                        to={`instruments?category=${category.category}&subCategory=${sCategory}`}
+                      >
+                        <ListItem>
+                          <ListItemPrefix>
+                            <ChevronRightIcon
+                              strokeWidth={3}
+                              className="h-3 w-5"
+                            />
+                          </ListItemPrefix>
+                          {sCategory}
+                        </ListItem>
+                      </Link>
                     ))}
                   </List>
                 </AccordionBody>

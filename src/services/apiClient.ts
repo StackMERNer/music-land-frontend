@@ -12,22 +12,32 @@ const axiosInstance = axios.create({
 
 class APIClient<T> {
   endpoint: string;
+  controller: AbortController | null = null; // Variable to hold the AbortController
   constructor(endpoint: string) {
     this.endpoint = endpoint;
   }
   get = (config?: AxiosRequestConfig) => {
-    // console.log("object");
+    // Create a new AbortController for the current request
+    this.controller = new AbortController();
+
+    // Add the signal to the request config
+    const requestConfig: AxiosRequestConfig = {
+      ...config,
+      signal: this.controller.signal,
+    };
+
     return axiosInstance
-      .get<FetchResponse<T>>(this.endpoint, config)
+      .get<FetchResponse<T>>(this.endpoint, requestConfig)
       .then((res) => res.data);
+  };
+
+  // Method to cancel the current request
+  cancelRequest = () => {
+    if (this.controller) {
+      this.controller.abort();
+      this.controller = null;
+    }
   };
 }
 
 export default APIClient;
-
-// export default axios.create({
-//   baseURL: "https://api.rawg.io/api",
-//   params: {
-//     key: "b74a97ca85b34a2f97ecfc34992adcf6",
-//   },
-// });
