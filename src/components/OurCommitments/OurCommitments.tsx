@@ -58,11 +58,8 @@ const OurCommitments = () => {
           ]}
         >
           {commits.map((commit, index) => (
-            <div className="py-2">
-              <div
-                key={index}
-                className="shadow-[0_0_2px]  shadow-green-100   flex flex-col items-center  gap-3 bg-[#0B122D] rounded-lg w-[220px] sm:mx-3 mx-2 p-4 h-[200px]"
-              >
+            <div className="py-2" key={index}>
+              <div className="shadow-[0_0_2px]  shadow-green-100   flex flex-col items-center  gap-3 bg-[#0B122D] rounded-lg w-[220px] sm:mx-3 mx-2 p-4 h-[200px]">
                 <h1 className="font-bold font-roboto text-gray-300 text-left w-full flex gap-1 items-center">
                   <span className="w-6 h-6 bg-dark-soft  rounded-full  flex justify-center items-center text-gray-400 text-sm">
                     {index + 1}

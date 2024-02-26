@@ -59,17 +59,15 @@ const PopularCategories = () => {
         ]}
       >
         {categories.map((category, index) => (
-          <>
-            <div key={index} className="py-1">
-              <span
-                className={`h-[2px]  block  mt-1 bg-gradient-to-br from-yellow-500 via-green-light [clip-path:polygon(0%_0%,50%_50%,100%_0%)] w-[100%] md:w-[80%] mx-auto`}
-              ></span>
-              <div className="shadow-[0_0_2px]  shadow-green-100  py-4 flex flex-col items-center justify-center gap-3 bg-[#0B122D] rounded-lg min-w-[120px] sm:mx-3 mx-2">
-                <img src={category.icon} alt="category" />
-                <h3 className="text-sm text-gray-500">{category.title}</h3>
-              </div>
+          <div key={index} className="py-1">
+            <span
+              className={`h-[2px]  block  mt-1 bg-gradient-to-br from-yellow-500 via-green-light [clip-path:polygon(0%_0%,50%_50%,100%_0%)] w-[100%] md:w-[80%] mx-auto`}
+            ></span>
+            <div className="shadow-[0_0_2px]  shadow-green-100  py-4 flex flex-col items-center justify-center gap-3 bg-[#0B122D] rounded-lg min-w-[120px] sm:mx-3 mx-2">
+              <img src={category.icon} alt="category" />
+              <h3 className="text-sm text-gray-500">{category.title}</h3>
             </div>
-          </>
+          </div>
         ))}
       </Slider>
       {/* <div className="flex gap-4 items-stretch text-white justify-center">

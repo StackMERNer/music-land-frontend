@@ -82,6 +82,7 @@ export function Sidebar() {
           <List className="min-h-[60vh] overflow-y-scroll scrollbar-none">
             {categories.map((category, index) => (
               <Accordion
+                key={index}
                 open={open === index}
                 icon={
                   <ChevronDownIcon
