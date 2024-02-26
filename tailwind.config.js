@@ -39,5 +39,8 @@ export default withMT({
       roboto: ["Roboto", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
+  // plugins: [
+  //   require("tailwind-scrollbar"),
+  // ],
 });

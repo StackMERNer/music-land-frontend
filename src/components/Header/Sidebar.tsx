@@ -2,12 +2,12 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
   CubeTransparentIcon,
-  MagnifyingGlassIcon
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import {
   PowerIcon,
   PresentationChartBarIcon,
-  ShoppingBagIcon
+  ShoppingBagIcon,
 } from "@heroicons/react/24/solid";
 import {
   Accordion,
@@ -20,33 +20,53 @@ import {
   List,
   ListItem,
   ListItemPrefix,
-  Typography
+  Typography,
 } from "@material-tailwind/react";
-import React from "react";
+import React, { useState } from "react";
+import useCategories from "../../hooks/useCategories";
 import Hamburger from "./Hamburger";
 import Logo from "./Logo";
 
+// interface Instrument extends Document {
+//   name: string;
+//   modelNumber: string;
+//   category: string;
+//   instrumentGroup: string;
+//   price: number;
+//   brand: string;
+//   images: string[];
+//   description: string;
+//   quantity: number;
+//   keywords: string[];
+//   specifications: {
+//     [key: string]: string | number;
+//   };
+// }
+
 export function Sidebar() {
-  const [open, setOpen] = React.useState(0);
-  const [openAlert, setOpenAlert] = React.useState(true);
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  const [open, setOpen] = useState<null | number>(null);
+  // const [openAlert, setOpenAlert] = useState(true);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const handleOpen = (value: number) => {
-    setOpen(open === value ? 0 : value);
+    setOpen(open === value ? null : value);
   };
   const closeDrawer = () => setIsDrawerOpen(false);
   const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
+
+  const { categories, isLoading, error } = useCategories();
+  // console.log(isLoading);
   return (
     <>
       <Hamburger toggleDrawer={toggleDrawer} isOpen={isDrawerOpen} />
       <Drawer
         open={isDrawerOpen}
-        className="bg-dark-solid "
+        className="bg-dark-solid"
         onClose={closeDrawer}
       >
         <Card
           color="transparent"
           shadow={false}
-          className="h-[calc(100vh-2rem)] w-full p-4 "
+          className="h-[calc(100vh-2rem)] w-full p-4"
         >
           <div className="mb-2 flex items-center gap-4 p-4 justify-between">
             <Logo />
@@ -59,123 +79,50 @@ export function Sidebar() {
               label="Search"
             />
           </div>
-          <List>
-            <Accordion
-              open={open === 1}
-              icon={
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`mx-auto h-4 w-4 transition-transform ${
-                    open === 1 ? "rotate-180" : ""
-                  }`}
-                />
-              }
-            >
-              <ListItem className="p-0" selected={open === 1}>
-                <AccordionHeader
-                  onClick={() => handleOpen(1)}
-                  className="border-b-0 p-3"
-                >
-                  <ListItemPrefix>
-                    <PresentationChartBarIcon className="h-5 w-5" />
-                  </ListItemPrefix>
-                  <Typography className="mr-auto text-white font-normal">
-                    Dashboard
-                  </Typography>
-                </AccordionHeader>
-              </ListItem>
-              <AccordionBody className="py-1">
-                <List className="p-0">
-                  <ListItem>
+          <List className="min-h-[60vh] overflow-y-scroll scrollbar-none">
+            {categories.map((category, index) => (
+              <Accordion
+                open={open === index}
+                icon={
+                  <ChevronDownIcon
+                    strokeWidth={2.5}
+                    className={`mx-auto h-4 w-4 transition-transform ${
+                      open === 1 ? "rotate-180" : ""
+                    }`}
+                  />
+                }
+              >
+                <ListItem className="p-0" selected={open === index}>
+                  <AccordionHeader
+                    onClick={() => handleOpen(index)}
+                    className="border-b-0 p-3"
+                  >
                     <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                      <PresentationChartBarIcon className="h-5 w-5" />
                     </ListItemPrefix>
-                    Analytics
-                  </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Reporting
-                  </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Projects
-                  </ListItem>
-                </List>
-              </AccordionBody>
-            </Accordion>
-            <Accordion
-              open={open === 2}
-              icon={
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`mx-auto h-4 w-4 transition-transform ${
-                    open === 2 ? "rotate-180" : ""
-                  }`}
-                />
-              }
-            >
-              <ListItem className="p-0" selected={open === 2}>
-                <AccordionHeader
-                  onClick={() => handleOpen(2)}
-                  className="border-b-0 p-3"
-                >
-                  <ListItemPrefix>
-                    <ShoppingBagIcon className="h-5 w-5" />
-                  </ListItemPrefix>
-                  <Typography className="mr-auto text-white font-normal ">
-                    E-Commerce
-                  </Typography>
-                </AccordionHeader>
-              </ListItem>
-              <AccordionBody className="py-1">
-                <List className="p-0">
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Orders
-                  </ListItem>
-                  <ListItem>
-                    <ListItemPrefix>
-                      <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                    </ListItemPrefix>
-                    Products
-                  </ListItem>
-                </List>
-              </AccordionBody>
-            </Accordion>
+                    <Typography className="mr-auto text-white font-normal">
+                      {category.category}
+                    </Typography>
+                  </AccordionHeader>
+                </ListItem>
+                <AccordionBody className="py-1">
+                  <List className="p-0">
+                    {category.subCategories.map((sCategory, index) => (
+                      <ListItem key={index}>
+                        <ListItemPrefix>
+                          <ChevronRightIcon
+                            strokeWidth={3}
+                            className="h-3 w-5"
+                          />
+                        </ListItemPrefix>
+                        {sCategory}
+                      </ListItem>
+                    ))}
+                  </List>
+                </AccordionBody>
+              </Accordion>
+            ))}
             <hr className="my-2 border-blue-gray-50" />
-            {/* <ListItem>
-              <ListItemPrefix>
-                <InboxIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Inbox
-              <ListItemSuffix>
-                <Chip
-                  value="14"
-                  size="sm"
-                  variant="ghost"
-                  
-                   text-whiteclassName="rounded-full"
-                />
-              </ListItemSuffix>
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <UserCircleIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Profile
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <Cog6ToothIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Settings
-            </ListItem> */}
             <ListItem>
               <ListItemPrefix>
                 <PowerIcon className="h-5 w-5" />
@@ -183,7 +130,7 @@ export function Sidebar() {
               Log Out
             </ListItem>
           </List>
-          <Alert
+          {/* <Alert
             open={openAlert}
             className="mt-auto"
             onClose={() => setOpenAlert(false)}
@@ -215,7 +162,7 @@ export function Sidebar() {
                 Upgrade Now
               </Typography>
             </div>
-          </Alert>
+          </Alert> */}
         </Card>
       </Drawer>
     </>
