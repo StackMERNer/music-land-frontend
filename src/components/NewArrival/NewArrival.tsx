@@ -24,7 +24,7 @@ const NewArrival = () => {
             atque vero, iure veritatis, ad beatae praesentium laudantium
             reprehenderit debitis commodi quam id temporibus dicta..
           </p>
-          <p className="text-gray-200 text-2xl font-bold py-3">৳ 688 /-</p>
+          <p className="text-gray-200 text-2xl font-bold py-3">$ 688 </p>
           <div className="flex gap-3 flex-col sm:flex-row">
             <button className="px-5 py-2  bg-primary-yellow font-roboto text-sm font-semibold">
               Add to cart
