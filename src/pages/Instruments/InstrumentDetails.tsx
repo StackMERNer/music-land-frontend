@@ -26,7 +26,7 @@ const InstrumentDetails = () => {
     }
   };
   return (
-    <div className="container mx-auto flex justify-center min-h-screen pt-5 pb-3 gap-4">
+    <div className="container mx-auto flex justify-center min-h-screen pt-5 pb-3 gap-4 items-baseline">
       {instrument && (
         <InstrumentDetailsCard addToCart={addToCard} instrument={instrument} />
       )}

@@ -2,9 +2,9 @@ import { AddedProduct } from "../../hooks/useCart";
 
 const Cart = ({ items }: { items: AddedProduct[] }) => {
   return (
-    <div className="cart text-white p-4 ">
-      {/* <h2>Cart</h2> */}
-      <div>
+    <div className="text-white p-4 self-start">
+      
+      <div className="flex flex-col gap-2">
         {items.map((item, index) => (
           <div
             key={index}

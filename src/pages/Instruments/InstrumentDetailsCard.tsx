@@ -55,7 +55,6 @@ const InstrumentDetailsCard = ({
       </div>
       <div>
         <h1 className="text-xl font-semibold">৳ {price}</h1>
-        
       </div>
       <p className="py-3">{description}</p>
       <ul className="list-disc list-inside capitalize">
