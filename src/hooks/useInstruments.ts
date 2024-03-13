@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import APIClient from "../services/apiClient";
 
 export interface Instrument {
+  _id: string;
   name: string;
   model: string;
   category: string;
