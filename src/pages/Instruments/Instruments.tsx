@@ -22,10 +22,12 @@ const Instruments = () => {
   }
   return (
     <section className="container mx-auto p-5 min-h-screen">
-      \<h1 className="text-center text-4xl text-white">{instruments.length}</h1>
-      {instruments.map((instrument, index) => (
-        <InstrumentCard instrumentObj={instrument} key={index} />
-      ))}
+      \<h1 className="text-center text-4xl py-2 text-white">{instruments.length}</h1>
+      <div className="grid grid-cols-4">
+        {instruments.map((instrument, index) => (
+          <InstrumentCard instrumentObj={instrument} key={index} />
+        ))}
+      </div>
     </section>
   );
 };

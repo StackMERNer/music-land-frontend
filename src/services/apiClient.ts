@@ -1,10 +1,16 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-export interface FetchResponse<T> {
-  count?: number;
-  results: T[];
-  next?: string;
+export interface SuccessResponse<T> {
+  success: true;
+  payload: T;
 }
+export interface ErrorResponse {
+  success: false;
+  error: {
+    message: string;
+  };
+}
+export type FetchResponse<T> = SuccessResponse<T> | ErrorResponse;
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:5000",
