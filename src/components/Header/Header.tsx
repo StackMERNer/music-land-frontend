@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { Sidebar } from "./Sidebar";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+import { auth } from "../../services/firebase";
+import useUser from "../../hooks/useUser";
 
 const Header = () => {
+  const [gUser] = useAuthState(auth);
+  const { user } = useUser(gUser?.uid);
+  const [signOut] = useSignOut(auth);
   return (
     <nav className="sticky left-0 right-0 top-0 z-10 bg-dark-solid ">
       <div className="container mx-auto px-5 py-1 flex items-center justify-between">
@@ -11,9 +17,18 @@ const Header = () => {
           <Logo />
         </div>
         <div className="font-roboto font-semibold">
-          <Link to='/signIn' className="px-4 py-1 rounded-full bg-primary-yellow text-black text-[12px]">
-            Sign In
-          </Link>
+          {user?.email ? (
+            <button onClick={() => signOut()} className="text-white">
+              Sign Out
+            </button>
+          ) : (
+            <Link
+              to="/signIn"
+              className="px-4 py-1 rounded-full bg-primary-yellow text-black text-[12px]"
+            >
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
       <span

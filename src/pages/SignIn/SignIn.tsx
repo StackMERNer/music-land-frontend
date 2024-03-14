@@ -9,6 +9,7 @@ import { FormEvent, useEffect, useState } from "react";
 
 import { auth } from "../../services/firebase";
 import ResigterUserToDb from "./ResigterToDb";
+import useUser from "../../hooks/useUser";
 
 export default function SignIn() {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -21,13 +22,16 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, eUser, eLoading, eError] =
     useSignInWithEmailAndPassword(auth);
-  const [userState, userStateLoaing, userStateError] = useAuthState(auth);
+  const [userState] = useAuthState(auth);
   const from = state?.pathname || "/";
-  //   useEffect(() => {
-  //     if (guser || eUser) {
-  //       navigate(from, { replace: true, state: { ...state } });
-  //     }
-  //   }, [guser, eUser]);
+  const { user } = useUser(userState?.uid);
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true, state: { ...state } });
+    }
+  }, [user]);
+
   if (gError) {
     console.log(gError);
     return (
@@ -37,7 +41,6 @@ export default function SignIn() {
     );
   }
 
-  //   console.log(userState);
 
   const handleSignInWithEmailAndPass = (e: FormEvent) => {
     e.preventDefault();
@@ -57,8 +60,6 @@ export default function SignIn() {
   if (userState) {
     return <ResigterUserToDb gUser={userState} />;
   }
-
-  // console.log(userState);
 
   return (
     <section
