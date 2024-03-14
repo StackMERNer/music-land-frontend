@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { Sidebar } from "./Sidebar";
 
@@ -10,9 +11,9 @@ const Header = () => {
           <Logo />
         </div>
         <div className="font-roboto font-semibold">
-          <button className="px-4 py-1 rounded-full bg-primary-yellow text-black text-[12px]">
+          <Link to='/signIn' className="px-4 py-1 rounded-full bg-primary-yellow text-black text-[12px]">
             Sign In
-          </button>
+          </Link>
         </div>
       </div>
       <span

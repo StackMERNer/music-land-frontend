@@ -37,6 +37,21 @@ class APIClient<T> {
       .then((res) => res.data);
   };
 
+  post = (data: any, config?: AxiosRequestConfig) => {
+    // Create a new AbortController for the current request
+    this.controller = new AbortController();
+
+    // Add the signal to the request config
+    const requestConfig: AxiosRequestConfig = {
+      ...config,
+      signal: this.controller.signal,
+    };
+
+    return axiosInstance
+      .post<FetchResponse<T>>(this.endpoint, data, requestConfig)
+      .then((res) => res.data);
+  };
+
   // Method to cancel the current request
   cancelRequest = () => {
     if (this.controller) {
