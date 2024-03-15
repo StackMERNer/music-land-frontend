@@ -10,7 +10,12 @@ const Hero = () => {
             Musical Instruments <br /> In One Shop
           </h1>
           <p className="text-gray-300 text-sm mt-5 ">
-          Elevate your musical journey with our premium selection of instruments, crafted with precision and passion. Explore a diverse range of options, from classic instruments to modern marvels, ensuring a perfect fit for musicians of all levels. Find your rhythm and unleash your creativity with instruments designed to inspire and captivate.
+            Elevate your musical journey with our premium selection of
+            instruments, crafted with precision and passion. Explore a diverse
+            range of options, from classic instruments to modern marvels,
+            ensuring a perfect fit for musicians of all levels. Find your rhythm
+            and unleash your creativity with instruments designed to inspire and
+            captivate.
           </p>
           <div className="my-5 flex gap-4">
             <button className="px-4 py-1 text-sm bg-primary-yellow text-black font-semibold">

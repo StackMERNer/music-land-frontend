@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import APIClient from "../services/apiClient";
 
 export interface Customer {
+  _id:string,
   uid: string;
   name: string;
   email: string;

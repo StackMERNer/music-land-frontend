@@ -1,9 +1,46 @@
+import { Button } from "@material-tailwind/react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AddedProduct } from "../../hooks/useCart";
+import usePlaceOrder, { Order } from "../../hooks/usePlaceOrder";
+import useUser from "../../hooks/useUser";
+import { auth } from "../../services/firebase";
 
 const Cart = ({ items }: { items: AddedProduct[] }) => {
+  const calculateTotal = (items: AddedProduct[]) => {
+    return items
+      .reduce((total, item) => total + item.price * item.quantity, 0)
+      .toFixed(2);
+  };
+  const [userState] = useAuthState(auth);
+  const { user } = useUser(userState?.uid);
+  const navigate = useNavigate();
+  const { placeOrder, loading, error } = usePlaceOrder();
+  const handlePlaceOrder = async () => {
+    if (!user) {
+      navigate("/signIn");
+      return;
+    }
+    const order: Order = {
+      customer: {
+        id: user._id,
+        name: user.name,
+        phone: user.phone,
+        email: user.email,
+        address: user.address,
+      },
+      cart: items,
+    };
+    const result = await placeOrder(order);
+  };
+
+  if (error) {
+    toast.error(error);
+  }
+
   return (
-    <div className="text-white p-4 self-start">
-      
+    <div className="text-white p-4 ">
       <div className="flex flex-col gap-2">
         {items.map((item, index) => (
           <div
@@ -22,20 +59,19 @@ const Cart = ({ items }: { items: AddedProduct[] }) => {
           </div>
         ))}
       </div>
+      {error && <div className="text-center text-red-700 py-4">{error}</div>}
       <div className="py-3 mt-4">
         <p>Total: ৳ {calculateTotal(items)}</p>
-        <button className="w-full bg-green-light text-black px-3 py-3 rounded-lg mt-4">
+        <Button
+          onClick={handlePlaceOrder}
+          loading={loading}
+          className="w-full bg-green-light text-black px-3 py-3 rounded-lg mt-4 "
+        >
           Place Order
-        </button>
+        </Button>
       </div>
     </div>
   );
-};
-
-const calculateTotal = (items: AddedProduct[]) => {
-  return items
-    .reduce((total, item) => total + item.price * item.quantity, 0)
-    .toFixed(2);
 };
 
 export default Cart;

@@ -4,11 +4,13 @@ import { Sidebar } from "./Sidebar";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { auth } from "../../services/firebase";
 import useUser from "../../hooks/useUser";
-
+import { IoMdCart } from "react-icons/io";
+import useCart from "../../hooks/useCart";
 const Header = () => {
   const [gUser] = useAuthState(auth);
   const { user } = useUser(gUser?.uid);
   const [signOut] = useSignOut(auth);
+  const { cart } = useCart();
   return (
     <nav className="sticky left-0 right-0 top-0 z-10 bg-dark-solid ">
       <div className="container mx-auto px-5 py-1 flex items-center justify-between">
@@ -16,7 +18,15 @@ const Header = () => {
           <Sidebar />
           <Logo />
         </div>
-        <div className="font-roboto font-semibold">
+        <div className="font-roboto font-semibold flex items-center gap-2">
+          <Link to="/cart">
+            <div className="relative ">
+              <span className="px-2 bg-primary-yellow rounded-full inline-block text-[10px]  absolute top-[-8px] left-[10px]">
+                {cart.length}
+              </span>
+              <IoMdCart size={25} color="white" />
+            </div>
+          </Link>
           {user?.email ? (
             <button onClick={() => signOut()} className="text-white">
               Sign Out
