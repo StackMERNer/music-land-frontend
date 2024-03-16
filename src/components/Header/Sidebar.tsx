@@ -1,12 +1,9 @@
 import {
   ChevronDownIcon,
   ChevronRightIcon,
-  MagnifyingGlassIcon
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import {
-  PowerIcon,
-  PresentationChartBarIcon
-} from "@heroicons/react/24/solid";
+import { PowerIcon, PresentationChartBarIcon } from "@heroicons/react/24/solid";
 import {
   Accordion,
   AccordionBody,
@@ -17,7 +14,7 @@ import {
   List,
   ListItem,
   ListItemPrefix,
-  Typography
+  Typography,
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -25,7 +22,6 @@ import useCategories from "../../hooks/useCategories";
 import { DefaultSkeleton } from "../Skeletons/DefaultSkeleton";
 import Hamburger from "./Hamburger";
 import Logo from "./Logo";
-
 
 export function Sidebar() {
   const [open, setOpen] = useState<null | number>(null);
@@ -102,6 +98,7 @@ export function Sidebar() {
                           category: category.category,
                           subCategory: sCategory,
                         }}
+                        // onClick={() => setIsDrawerOpen(false)}
                         to={`instruments?category=${category.category}&subCategory=${sCategory}`}
                       >
                         <ListItem>
@@ -127,39 +124,6 @@ export function Sidebar() {
               Log Out
             </ListItem>
           </List>
-          {/* <Alert
-            open={openAlert}
-            className="mt-auto"
-            onClose={() => setOpenAlert(false)}
-          >
-            <CubeTransparentIcon className="mb-4 h-12 w-12" />
-            <Typography variant="h6" className="mb-1">
-              Upgrade to PRO
-            </Typography>
-            <Typography variant="small" className="font-normal opacity-80">
-              Upgrade to Material Tailwind PRO and get even more components,
-              plugins, advanced features and premium.
-            </Typography>
-            <div className="mt-4 flex gap-3">
-              <Typography
-                as="a"
-                href="#"
-                variant="small"
-                className="font-medium opacity-80"
-                onClick={() => setOpenAlert(false)}
-              >
-                Dismiss
-              </Typography>
-              <Typography
-                as="a"
-                href="#"
-                variant="small"
-                className="font-medium"
-              >
-                Upgrade Now
-              </Typography>
-            </div>
-          </Alert> */}
         </Card>
       </Drawer>
     </>
