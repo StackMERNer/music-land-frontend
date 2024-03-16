@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
+import Cart from "../../pages/Instruments/Cart";
 import InstrumentDetails from "../../pages/Instruments/InstrumentDetails";
 import Instruments from "../../pages/Instruments/Instruments";
-import Home from "../Home/Home";
-import SignIn from "../../pages/SignIn/SignIn";
 import Orders from "../../pages/Orders/Orders";
-import Cart from "../../pages/Instruments/Cart";
+import SignIn from "../../pages/SignIn/SignIn";
+import Home from "../Home/Home";
 
 const AppRoutes = () => {
   return (

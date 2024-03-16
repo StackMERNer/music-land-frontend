@@ -1,21 +1,22 @@
 import { Button } from "@material-tailwind/react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { GiShoppingCart } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useCart, { AddedProduct } from "../../hooks/useCart";
+import { Order } from "../../hooks/useOrders";
 import usePlaceOrder from "../../hooks/usePlaceOrder";
 import useUser from "../../hooks/useUser";
 import { auth } from "../../services/firebase";
-import { Order } from "../../hooks/useOrders";
-import { GiShoppingCart } from "react-icons/gi";
 
 const Cart = () => {
-  const { cart, resetCart } = useCart();
-  const calculateTotal = (items: AddedProduct[]) => {
-    return items
+  const { cart,  resetCart } = useCart();
+  const calculateTotal = (cart: AddedProduct[]) => {
+    return cart
       .reduce((total, item) => total + item.price * item.quantity, 0)
       .toFixed(2);
   };
+
   const [userState] = useAuthState(auth);
   const { user } = useUser(userState?.uid ?? "");
   const navigate = useNavigate();
