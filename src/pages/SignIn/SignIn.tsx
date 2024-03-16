@@ -45,11 +45,12 @@ export default function SignIn() {
   }
 
   const handleSignInWithEmailAndPass = (e: FormEvent) => {
+    e.preventDefault();
     toast(
       "Sign In with email and pass currently unavailable, try Google Sign In please!"
     );
     return;
-    e.preventDefault();
+    ;
     signInWithEmailAndPassword(email, password)
       .then((res) => {
         console.log(res);
