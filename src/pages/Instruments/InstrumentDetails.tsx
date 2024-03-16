@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import useCart, { AddedProduct } from "../../hooks/useCart";
 import useInstrument from "../../hooks/useInstrument";
-import Cart from "./Cart";
-import InstrumentDetailsCard from "./InstrumentDetailsCard";
 import useReviews from "../../hooks/useReviews";
+import InstrumentDetailsCard from "./InstrumentDetailsCard";
 import ReviewList from "./ReviewList";
+import { toast } from "react-toastify";
 
 const InstrumentDetails = () => {
   const { id } = useParams();
@@ -24,6 +24,9 @@ const InstrumentDetails = () => {
 
       setCart([...cart, newItem]);
       localStorage.setItem("cart", JSON.stringify([...cart, newItem]));
+      toast.success("Item added to cart!");
+    }else{
+      toast.info("Item already added to cart!");
     }
   };
   const { reviews } = useReviews();

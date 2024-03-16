@@ -5,7 +5,6 @@ import { FaStar, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 const Review = ({ review }: { review: ReviewType }) => {
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
-
   const handleLike = () => {
     if (!liked) {
       console.log("Liked review:", review.id);
