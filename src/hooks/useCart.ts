@@ -19,7 +19,10 @@ const useCart = () => {
     localStorage.removeItem("cart");
     setCart([]);
   };
-  return { cart, setCart, resetCart };
+  const updateLocalStorage = (items: AddedProduct[]) => {
+    localStorage.setItem("cart", JSON.stringify(items));
+  };
+  return { cart, setCart, resetCart, updateLocalStorage };
 };
 
 export default useCart;

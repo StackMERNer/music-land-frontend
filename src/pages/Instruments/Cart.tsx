@@ -10,7 +10,7 @@ import useUser from "../../hooks/useUser";
 import { auth } from "../../services/firebase";
 
 const Cart = () => {
-  const { cart,  resetCart } = useCart();
+  const { cart, resetCart, setCart, updateLocalStorage } = useCart();
   const calculateTotal = (cart: AddedProduct[]) => {
     return cart
       .reduce((total, item) => total + item.price * item.quantity, 0)
@@ -50,6 +50,11 @@ const Cart = () => {
   if (error) {
     toast.error(error);
   }
+  const handleRemoveItem = (id: string) => {
+    const restItems = cart.filter((item) => item.id !== id);
+    setCart(restItems);
+    updateLocalStorage(restItems);
+  };
 
   return (
     <div className="text-white p-4 max-w-[400px] mx-auto min-h-screen">
@@ -72,7 +77,12 @@ const Cart = () => {
             </div>
             <div className="flex flex-col justify-between">
               <h1 className="text-xl font-semibold">৳ {item.price}</h1>
-              <button className="text-red-600">Remove</button>
+              <button
+                onClick={() => handleRemoveItem(item.id ?? "")}
+                className="text-red-600"
+              >
+                Remove
+              </button>
             </div>
           </div>
         ))}
