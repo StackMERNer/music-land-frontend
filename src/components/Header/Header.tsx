@@ -8,7 +8,7 @@ import { IoMdCart } from "react-icons/io";
 import useCart from "../../hooks/useCart";
 const Header = () => {
   const [gUser] = useAuthState(auth);
-  const { user } = useUser(gUser?.uid);
+  const { user } = useUser(gUser?.uid ?? "");
   const [signOut] = useSignOut(auth);
   const { cart } = useCart();
   return (

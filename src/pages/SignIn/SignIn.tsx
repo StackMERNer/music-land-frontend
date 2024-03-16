@@ -32,6 +32,7 @@ export default function SignIn() {
     if (user) {
       navigate(from, { replace: true, state: { ...state } });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   if (gError) {

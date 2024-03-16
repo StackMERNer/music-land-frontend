@@ -6,18 +6,24 @@ export interface Category {
   subCategories: string[];
 }
 
-const apiClient = new APIClient<Category>("/categories");
+const apiClient = new APIClient<Category[]>("/categories");
 
 const useCategories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     setIsLoading(true);
     apiClient
       .get()
-      .then((res) => setCategories(res.results))
-      .catch((err: Error) => setError(err))
+      .then((res) => {
+        if (res.success) {
+          setCategories(res.payload);
+        } else {
+          setError(res.error.message);
+        }
+      })
+      .catch((err: Error) => setError(err.message))
       .finally(() => {
         setIsLoading(false);
       });

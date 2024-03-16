@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Instrument } from "../../hooks/useInstruments";
 
 const InstrumentCard = ({ instrumentObj }: { instrumentObj: Instrument }) => {
-  const { name, brand, images, model, price, quantity, _id } = instrumentObj;
+  const { name,  images, model, price, quantity, _id } = instrumentObj;
   return (
     <Link to={`/instruments/${_id}`}>
       <div className="shadow-[0_0_2px]  shadow-green-100  pb-2  justify-center gap-3 bg-[#0B122D] rounded-lg min-w-[120px] sm:mx-3 mx-2">

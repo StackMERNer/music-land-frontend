@@ -4,7 +4,7 @@ import useUser from "./useUser";
 
 const useUserInfo = () => {
   const [userState] = useAuthState(auth);
-  const { user } = useUser(userState?.uid);
+  const { user } = useUser(userState?.uid ?? "");
 
   return { _id: user?._id };
 };

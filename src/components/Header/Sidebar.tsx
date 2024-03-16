@@ -59,7 +59,7 @@ export function Sidebar() {
             />
           </div>
           {error && (
-            <div className="text-white p-5 font-roboto">{error?.message}</div>
+            <div className="text-white p-5 font-roboto">{error}</div>
           )}
           {isLoading && <DefaultSkeleton />}
           <List className="min-h-[60vh] overflow-y-scroll scrollbar-none">

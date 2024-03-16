@@ -22,12 +22,12 @@ export interface InstrumentQuery {
   subCategory: string;
 }
 
-const apiClient = new APIClient<Instrument>("/instruments");
+const apiClient = new APIClient<Instrument[]>("/instruments");
 
 const useInstruments = (instrumentQuery: InstrumentQuery) => {
   const [instruments, setInstruments] = useState<Instrument[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     setIsLoading(true);
     apiClient.cancelRequest();
@@ -35,9 +35,13 @@ const useInstruments = (instrumentQuery: InstrumentQuery) => {
       apiClient
         .get({ params: instrumentQuery })
         .then((res) => {
-          setInstruments(res.results);
+          if (res.success) {
+            setInstruments(res.payload);
+          } else {
+            setError(res.error.message);
+          }
         })
-        .catch((err: Error) => setError(err))
+        .catch((err: Error) => setError(err.message))
         .finally(() => {
           setIsLoading(false);
         });
