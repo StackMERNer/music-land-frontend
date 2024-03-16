@@ -44,8 +44,8 @@
       "cymbals": "3 (Hi-Hat, Crash, Ride)",
       "finish": "Jet Black"
     },
-    "subCategory": "Drums and Percussion",
-    "category": "Drum Sets"
+    "subCategory": "Percussion Instruments",
+    "category": "Kalimbas"
   },
   {
     "_id": {
@@ -69,8 +69,8 @@
       "features": "Sequencer, Sampler, Effects",
       "finish": "Black"
     },
-    "subCategory": "Keyboards and Pianos",
-    "category": "Keyboards and Pianos"
+    "subCategory": "Percussion Instruments",
+    "category": "Kalimbas"
   },
   {
     "_id": {
@@ -93,8 +93,8 @@
       "pedals": "3 (Soft, Sostenuto, Damper)",
       "finish": "Polished Ebony"
     },
-    "subCategory": "Keyboards and Pianos",
-    "category": "Keyboards and Pianos"
+    "subCategory": "Percussion Instruments",
+    "category": "Kalimbas"
   },
   {
     "_id": {
@@ -142,8 +142,8 @@
       "material": "Brass",
       "finish": "Gold Lacquer"
     },
-    "subCategory": "Brass Instruments",
-    "category": "Brass Instruments"
+    "subCategory": "String Instruments",
+    "category": "Cellos"
   },
   {
     "_id": {
@@ -166,8 +166,8 @@
       "bridge": "Tremolo",
       "finish": "Sunburst"
     },
-    "subCategory": "Electric Guitars",
-    "category": "Guitars"
+    "subCategory": "String Instruments",
+    "category": "Cellos"
   },
   {
     "_id": {
@@ -190,8 +190,8 @@
       "back_and_sides_material": "Mahogany",
       "finish": "Natural"
     },
-    "subCategory": "Acoustic Guitars",
-    "category": "Guitars"
+    "subCategory": "String Instruments",
+    "category": "Cellos"
   },
   {
     "_id": {
@@ -213,8 +213,8 @@
       "material": "Silver-plated",
       "finish": "Silver"
     },
-    "subCategory": "Wind Instruments",
-    "category": "Woodwind Instruments"
+    "subCategory": "String Instruments",
+    "category": "Cellos"
   },
   {
     "_id": {
@@ -264,7 +264,7 @@
       "finish": "Satin"
     },
     "subCategory": "String Instruments",
-    "category": "Ukuleles"
+    "category": "Violins"
   },
   {
     "_id": {
@@ -288,8 +288,8 @@
       "effects": "Delay, Reverb, Modulation",
       "finish": "Black"
     },
-    "subCategory": "Keyboards and Pianos",
-    "category": "Keyboards and Pianos"
+    "subCategory": "String Instruments",
+    "category": "Violins"
   },
   {
     "_id": {
@@ -313,7 +313,7 @@
       "finish": "Natural"
     },
     "subCategory": "String Instruments",
-    "category": "Harp"
+    "category": "Violins"
   },
   {
     "_id": {
@@ -336,8 +336,8 @@
       "material": "Bamboo",
       "finish": "Natural"
     },
-    "subCategory": "Percussion Instruments",
-    "category": "Rainsticks"
+    "subCategory": "String Instruments",
+    "category": "Violins"
   },
   {
     "_id": {
@@ -359,8 +359,8 @@
       "material": "Steel",
       "finish": "Chrome"
     },
-    "subCategory": "Percussion Instruments",
-    "category": "Steel Pans"
+    "subCategory": "String Instruments",
+    "category": "Violins"
   },
   {
     "_id": {
@@ -388,8 +388,8 @@
       "features": "Sound Module, MIDI Connectivity",
       "finish": "Black"
     },
-    "subCategory": "Drums and Percussion",
-    "category": "Drum Sets"
+    "subCategory": "String Instruments",
+    "category": "Violins"
   },
   {
     "_id": {
@@ -416,7 +416,7 @@
       "material": "Maple",
       "finish": "Natural"
     },
-    "subCategory": "Keyboard and Pianos",
+    "subCategory": "String Instruments",
     "category": "Harpsichords"
   },
   {
@@ -444,8 +444,8 @@
       "head": "Calfskin",
       "finish": "Black"
     },
-    "subCategory": "Percussion Instruments",
-    "category": "Tambourines"
+    "subCategory": "String Instruments",
+    "category": "Harpsichords"
   },
   {
     "_id": {
@@ -468,8 +468,8 @@
       "snare": "Adjustable",
       "finish": "Natural"
     },
-    "subCategory": "Percussion Instruments",
-    "category": "Cajons"
+    "subCategory": "String Instruments",
+    "category": "Harpsichords"
   },
   {
     "_id": {
@@ -496,8 +496,8 @@
       "length": "29 inches",
       "frog": "Ebony with Parisian eye"
     },
-    "subCategory": "String Accessories",
-    "category": "Violin Accessories"
+    "subCategory": "String Instruments",
+    "category": "Harpsichords"
   },
   {
     "_id": {
@@ -547,8 +547,8 @@
       "material": "Brass",
       "finish": "Gold Lacquer"
     },
-    "subCategory": "Wind Instruments",
-    "category": "Woodwind Instruments"
+    "subCategory": "String Instruments",
+    "category": "Harps"
   },
   {
     "_id": {
@@ -574,8 +574,8 @@
       "material": "Grenadilla Wood",
       "finish": "Glossy"
     },
-    "subCategory": "Wind Instruments",
-    "category": "Woodwind Instruments"
+    "subCategory": "String Instruments",
+    "category": "Harps"
   },
   {
     "_id": {
@@ -598,8 +598,8 @@
       "reeds": "4",
       "finish": "Natural"
     },
-    "subCategory": "Keyboard and Pianos",
-    "category": "Harmoniums"
+    "subCategory": "String Instruments",
+    "category": "Harps"
   },
   {
     "_id": {
@@ -627,7 +627,7 @@
       "finish": "Natural"
     },
     "subCategory": "Wind Instruments",
-    "category": "Didgeridoos"
+    "category": "Harps"
   },
   {
     "_id": {
@@ -650,8 +650,8 @@
       "material": "Rosewood",
       "finish": "Natural"
     },
-    "subCategory": "Percussion Instruments",
-    "category": "Xylophones"
+    "subCategory": "Wind Instruments",
+    "category": "Harps"
   },
   {
     "_id": {
@@ -673,8 +673,8 @@
       "material": "Maple",
       "finish": "Natural"
     },
-    "subCategory": "String Instruments",
-    "category": "Baglamas"
+    "subCategory": "Wind Instruments",
+    "category": "Harps"
   },
   {
     "_id": {
@@ -697,8 +697,8 @@
       "material": "Brass",
       "finish": "Gold Lacquer"
     },
-    "subCategory": "Brass Instruments",
-    "category": "Brass Instruments"
+    "subCategory": "Wind Instruments",
+    "category": "Harps"
   },
   {
     "_id": {
@@ -722,7 +722,7 @@
       "key": "C"
     },
     "subCategory": "Wind Instruments",
-    "category": "Harmonicas"
+    "category": "Harps"
   },
   {
     "_id": {
@@ -749,8 +749,8 @@
       "material": "Maple",
       "finish": "Black"
     },
-    "subCategory": "Drums and Percussion",
-    "category": "Drum Sets"
+    "subCategory": "Wind Instruments",
+    "category": "Harps"
   },
   {
     "_id": {
@@ -774,8 +774,8 @@
       "features": "Sequencer, Auto-accompaniment",
       "finish": "Black"
     },
-    "subCategory": "Keyboards and Pianos",
-    "category": "Keyboards and Pianos"
+    "subCategory": "Wind Instruments",
+    "category": "Harps"
   },
   {
     "_id": {
@@ -822,8 +822,8 @@
       "material": "Steel",
       "finish": "Chrome"
     },
-    "subCategory": "Percussion Instruments",
-    "category": "Triangles"
+    "subCategory": "String Instruments",
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -845,8 +845,8 @@
       "material": "Grenadilla Wood",
       "finish": "Glossy"
     },
-    "subCategory": "Wind Instruments",
-    "category": "Woodwind Instruments"
+    "subCategory": "String Instruments",
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -869,8 +869,8 @@
       "material": "Plastic",
       "finish": "Black"
     },
-    "subCategory": "Wind Instruments",
-    "category": "Melodicas"
+    "subCategory": "String Instruments",
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -893,8 +893,8 @@
       "material": "Brass",
       "finish": "Gold Lacquer"
     },
-    "subCategory": "Brass Instruments",
-    "category": "Brass Instruments"
+    "subCategory": "String Instruments",
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -922,7 +922,7 @@
       "finish": "Chrome"
     },
     "subCategory": "Percussion Instruments",
-    "category": "Glockenspiels"
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -945,8 +945,8 @@
       "adjustability": "Spring tension, Beater angle",
       "finish": "Black"
     },
-    "subCategory": "Drum Accessories",
-    "category": "Drum Sets"
+    "subCategory": "Percussion Instruments",
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -974,8 +974,8 @@
       "reeds": "4",
       "finish": "Black"
     },
-    "subCategory": "Keyboard",
-    "category": "Accordions"
+    "subCategory": "Percussion Instruments",
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -999,7 +999,7 @@
       "finish": "Natural"
     },
     "subCategory": "Percussion Instruments",
-    "category": "Marimbas"
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -1023,7 +1023,7 @@
       "finish": "Natural"
     },
     "subCategory": "Percussion Instruments",
-    "category": "Cabasas"
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -1046,8 +1046,8 @@
       "back_and_sides_material": "Mahogany",
       "finish": "Natural"
     },
-    "subCategory": "Bass Guitars",
-    "category": "Guitars"
+    "subCategory": "Percussion Instruments",
+    "category": "Sitar"
   },
   {
     "_id": {
@@ -1100,7 +1100,7 @@
       "finish": "Black"
     },
     "subCategory": "Keyboard and Pianos",
-    "category": "Concertinas"
+    "category": "Accordions"
   },
   {
     "_id": {
@@ -1123,8 +1123,8 @@
       "material": "Sheesham Wood",
       "finish": "Natural"
     },
-    "subCategory": "Percussion Instruments",
-    "category": "Tablas"
+    "subCategory": "Keyboard and Pianos",
+    "category": "Accordions"
   },
   {
     "_id": {
@@ -1146,8 +1146,8 @@
       "material": "Brass",
       "finish": "Gold Lacquer"
     },
-    "subCategory": "Wind Instruments",
-    "category": "Woodwind Instruments"
+    "subCategory": "Keyboard and Pianos",
+    "category": "Accordions"
   },
   {
     "_id": {
@@ -1170,8 +1170,8 @@
       "drones": "3",
       "finish": "Natural"
     },
-    "subCategory": "Wind Instruments",
-    "category": "Bagpipes"
+    "subCategory": "Keyboard and Pianos",
+    "category": "Accordions"
   },
   {
     "_id": {
@@ -1193,8 +1193,8 @@
       "material": "Silver-plated",
       "finish": "Silver"
     },
-    "subCategory": "Wind Instruments",
-    "category": "Woodwind Instruments"
+    "subCategory": "Keyboard and Pianos",
+    "category": "Accordions"
   },
   {
     "_id": {
@@ -1218,7 +1218,7 @@
       "finish": "Sunburst"
     },
     "subCategory": "String Instruments",
-    "category": "Mandolins"
+    "category": "Accordions"
   },
   {
     "_id": {
@@ -1241,7 +1241,7 @@
       "head": "Goat Skin",
       "finish": "Natural"
     },
-    "subCategory": "Percussion Instruments",
-    "category": "Djembes"
+    "subCategory": "String Instruments",
+    "category": "Accordions"
   }
 ]

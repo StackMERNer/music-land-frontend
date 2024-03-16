@@ -98,7 +98,7 @@ export function Sidebar() {
                           category: category.category,
                           subCategory: sCategory,
                         }}
-                        // onClick={() => setIsDrawerOpen(false)}
+                        onClick={() => setIsDrawerOpen(false)}
                         to={`instruments?category=${category.category}&subCategory=${sCategory}`}
                       >
                         <ListItem>
