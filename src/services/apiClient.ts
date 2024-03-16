@@ -13,7 +13,7 @@ export interface ErrorResponse {
 export type FetchResponse<T> = SuccessResponse<T> | ErrorResponse;
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: import.meta.env.VITE_REACT_APP_API_URL,
 });
 
 class APIClient<T> {
