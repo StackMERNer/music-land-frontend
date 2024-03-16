@@ -2,20 +2,22 @@ import { Button } from "@material-tailwind/react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { AddedProduct } from "../../hooks/useCart";
+import useCart, { AddedProduct } from "../../hooks/useCart";
 import usePlaceOrder from "../../hooks/usePlaceOrder";
 import useUser from "../../hooks/useUser";
 import { auth } from "../../services/firebase";
 import { Order } from "../../hooks/useOrders";
+import { GiShoppingCart } from "react-icons/gi";
 
-const Cart = ({ items }: { items: AddedProduct[] }) => {
+const Cart = () => {
+  const { cart, resetCart } = useCart();
   const calculateTotal = (items: AddedProduct[]) => {
     return items
       .reduce((total, item) => total + item.price * item.quantity, 0)
       .toFixed(2);
   };
   const [userState] = useAuthState(auth);
-  const { user } = useUser(userState?.uid);
+  const { user } = useUser(userState?.uid ?? "");
   const navigate = useNavigate();
   const { placeOrder, loading, error } = usePlaceOrder();
   const handlePlaceOrder = async () => {
@@ -31,11 +33,17 @@ const Cart = ({ items }: { items: AddedProduct[] }) => {
         email: user.email,
         address: user.address,
       },
-      items: items,
+      items: cart,
     };
 
     const result = await placeOrder(order);
-    console.log("result", result);
+    if (result) {
+      toast.success("Order Placed successfully!");
+      setTimeout(() => {
+        resetCart();
+        toast.info("Cart Reseted!");
+      }, 1000);
+    }
   };
 
   if (error) {
@@ -43,9 +51,15 @@ const Cart = ({ items }: { items: AddedProduct[] }) => {
   }
 
   return (
-    <div className="text-white p-4 ">
+    <div className="text-white p-4 max-w-[400px] mx-auto min-h-screen">
+      {!(cart.length > 0) && (
+        <div className="  flex justify-center flex-col items-center gap-3 mt-5">
+          <GiShoppingCart size={100} />
+          <p>Your Cart Is Empty</p>
+        </div>
+      )}
       <div className="flex flex-col gap-2">
-        {items.map((item, index) => (
+        {cart.map((item, index) => (
           <div
             key={index}
             className="flex justify-between w-full gap-3 border border-gray-400 p-4 rounded max-w-[400px]"
@@ -63,16 +77,18 @@ const Cart = ({ items }: { items: AddedProduct[] }) => {
         ))}
       </div>
       {error && <div className="text-center text-red-700 py-4">{error}</div>}
-      <div className="py-3 mt-4">
-        <p>Total: ৳ {calculateTotal(items)}</p>
-        <Button
-          onClick={handlePlaceOrder}
-          loading={loading}
-          className="w-full bg-green-light text-black px-3 py-3 rounded-lg mt-4 "
-        >
-          Place Order
-        </Button>
-      </div>
+      {cart.length > 0 && (
+        <div className="py-3 mt-4">
+          <p>Total: ৳ {calculateTotal(cart)}</p>
+          <Button
+            onClick={handlePlaceOrder}
+            loading={loading}
+            className="w-full bg-green-light text-black px-3 py-3 rounded-lg mt-4 "
+          >
+            Place Order
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

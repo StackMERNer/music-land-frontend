@@ -17,8 +17,9 @@ const useCart = () => {
   }, []);
   const resetCart = () => {
     localStorage.removeItem("cart");
+    setCart([]);
   };
-  return { cart, setCart,resetCart };
+  return { cart, setCart, resetCart };
 };
 
 export default useCart;
