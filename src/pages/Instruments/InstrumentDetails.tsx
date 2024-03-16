@@ -24,9 +24,9 @@ const InstrumentDetails = () => {
 
       setCart([...cart, newItem]);
       localStorage.setItem("cart", JSON.stringify([...cart, newItem]));
-      toast.success("Item added to cart!");
-    }else{
-      toast.info("Item already added to cart!");
+      toast.success("Item added to cart!", { autoClose: 2000 });
+    } else {
+      toast.info("Item already added to cart!", { autoClose: 2000 });
     }
   };
   const { reviews } = useReviews();
