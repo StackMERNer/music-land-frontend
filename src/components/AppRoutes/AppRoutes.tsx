@@ -5,6 +5,7 @@ import Instruments from "../../pages/Instruments/Instruments";
 import Orders from "../../pages/Orders/Orders";
 import SignIn from "../../pages/SignIn/SignIn";
 import Home from "../Home/Home";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const AppRoutes = () => {
   return (
@@ -14,7 +15,14 @@ const AppRoutes = () => {
       <Route path="/signIn" element={<SignIn />} />
       <Route path="/instruments/:id" element={<InstrumentDetails />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/orders/:id" element={<Orders />} />
+      <Route
+        path="/orders/:id"
+        element={
+          <PrivateRoute>
+            <Orders />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 };

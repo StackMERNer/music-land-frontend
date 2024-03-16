@@ -1,18 +1,20 @@
-import { Input, Button } from "@material-tailwind/react";
+import { Button, Input } from "@material-tailwind/react";
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { FormEvent, useEffect, useState } from "react";
 
+import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
+import useUser from "../../hooks/useUser";
 import { auth } from "../../services/firebase";
 import ResigterUserToDb from "./ResigterToDb";
-import useUser from "../../hooks/useUser";
 
 export default function SignIn() {
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, , gLoading, gError] = useSignInWithGoogle(auth);
   const { state } = useLocation();
   const navigate = useNavigate();
   const handleSignInWithGoogle = () => {
@@ -20,11 +22,11 @@ export default function SignIn() {
   };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [signInWithEmailAndPassword, eUser, eLoading, eError] =
+  const [signInWithEmailAndPassword, , eLoading, eError] =
     useSignInWithEmailAndPassword(auth);
   const [userState] = useAuthState(auth);
   const from = state?.pathname || "/";
-  const { user } = useUser(userState?.uid);
+  const { user } = useUser(userState?.uid ?? "");
 
   useEffect(() => {
     if (user) {
@@ -41,18 +43,17 @@ export default function SignIn() {
     );
   }
 
-
   const handleSignInWithEmailAndPass = (e: FormEvent) => {
+    toast(
+      "Sign In with email and pass currently unavailable, try Google Sign In please!"
+    );
+    return;
     e.preventDefault();
-
     signInWithEmailAndPassword(email, password)
       .then((res) => {
-        // console.log('res',res);
-        // toast(`Hello ${auth.currentUser?.displayName?.split(" ")[0]}`);
-        // navigate(from, { replace: true });
+        console.log(res);
       })
       .catch((error) => {
-        // toast.error(`Error: ${error.message}`);
         console.log(error);
       });
   };
@@ -99,24 +100,16 @@ export default function SignIn() {
           {eError && (
             <div className="bg-red-100 p-3 text-red-400">{eError.message}</div>
           )}
-          {!eLoading ? (
-            <Button
-              type="submit"
-              className="w-full dark:bg-dark-btn-primary dark:text-[black] bg-c-primary text-[10px] py-4 my-6"
-            >
-              Sign In
-            </Button>
-          ) : (
-            <Button
-              variant="outlined"
-              className="w-full dark:bg-dark-btn-primary dark:text-[black]  text-[10px] py-1 my-6 border border-c-primary"
-            >
-              Loading..
-              {/* <SmallSpiner></SmallSpiner> */}
-            </Button>
-          )}
+
+          <Button
+            loading={eLoading}
+            type="submit"
+            className="w-full dark:bg-dark-btn-primary dark:text-[black] bg-c-primary text-[10px] py-4 my-6 bg-blue-700"
+          >
+            Sign In
+          </Button>
         </form>
-        <div>
+        {/* <div>
           <h1>
             Don't have an account?{" "}
             <Link
@@ -126,23 +119,19 @@ export default function SignIn() {
               Create one
             </Link>
           </h1>
-        </div>
+        </div> */}
         <div className="text-center py-4">Or</div>
         <div className="flex flex-col gap-3">
           <Button
+            loading={gLoading}
             onClick={handleSignInWithGoogle}
             className="text-center w-full border-c-primary dark:border-dark-btn-primary felx justify-center"
             variant="outlined"
           >
-            {gLoading ? (
-              //   <SmallSpiner></SmallSpiner>
-              <p>Loading..</p>
-            ) : (
-              <div className="flex justify-center items-center gap-2 text-white">
-                {/* <FcGoogle size={24} className="mb-[2px]"></FcGoogle>{" "} */}
-                <p>Continue With Google</p>
-              </div>
-            )}
+            <div className="flex justify-center items-center gap-2 text-white">
+              <FcGoogle size={24} className="mb-[2px]"></FcGoogle>{" "}
+              <p>Continue With Google</p>
+            </div>
           </Button>
         </div>
       </div>
