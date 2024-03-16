@@ -18,7 +18,7 @@ const Header = () => {
           <Sidebar />
           <Logo />
         </div>
-        <div className="font-roboto font-semibold flex items-center gap-2">
+        <div className="font-roboto  flex items-center gap-4">
           <Link to="/cart">
             <div className="relative ">
               <span className="px-2 bg-primary-yellow rounded-full inline-block text-[10px]  absolute top-[-8px] left-[10px]">
@@ -27,6 +27,10 @@ const Header = () => {
               <IoMdCart size={25} color="white" />
             </div>
           </Link>
+          <Link to={`/orders/${user?._id}`}>
+            <span className="text-white">Orders</span>
+          </Link>
+
           {user?.email ? (
             <button onClick={() => signOut()} className="text-white">
               Sign Out

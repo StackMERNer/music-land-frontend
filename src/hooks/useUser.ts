@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import APIClient from "../services/apiClient";
 
 export interface Customer {
-  _id:string,
+  _id: string;
   uid: string;
   name: string;
   email: string;
@@ -10,7 +10,8 @@ export interface Customer {
   address: string;
 }
 
-const useUser = (uid) => {
+const useUser = (uid:string) => {
+  // const [userState] = useAuthState(auth);
   const [user, setUser] = useState<Customer | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);

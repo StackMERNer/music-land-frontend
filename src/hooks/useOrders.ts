@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import APIClient from "../services/apiClient";
 import { AddedProduct } from "./useCart";
 export interface Order {
-  customer: {
-    id: string;
+  customerId:string;
+  customerCurrentInfo: {
     name: string;
     phone: string;
     email: string;
     address: string;
   };
-  cart: AddedProduct[];
+  items: AddedProduct[];
 }
 
 const useOrders = (userId: string) => {

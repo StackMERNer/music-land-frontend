@@ -1,13 +1,12 @@
-import { useParams } from "react-router-dom";
-import useInstrument from "../../hooks/useInstrument";
-import InstrumentDetailsCard from "./InstrumentDetailsCard";
-import { useState } from "react";
-import useCart, { AddedProduct } from "../../hooks/useCart";
-import Cart from "./Cart";
-import useOrders from "../../hooks/useOrders";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../services/firebase";
+import { useParams } from "react-router-dom";
+import useCart, { AddedProduct } from "../../hooks/useCart";
+import useInstrument from "../../hooks/useInstrument";
+import useOrders from "../../hooks/useOrders";
 import useUser from "../../hooks/useUser";
+import { auth } from "../../services/firebase";
+import Cart from "./Cart";
+import InstrumentDetailsCard from "./InstrumentDetailsCard";
 
 const InstrumentDetails = () => {
   const { id } = useParams();
@@ -42,7 +41,7 @@ const InstrumentDetails = () => {
         <div className="text-white">
           {orders.map((order, i) => (
             <div key={i}>
-              {order.cart.map((item, i) => (
+              {order.items.map((item, i) => (
                 <div key={i}>
                   <p>{item.name}</p>
                 </div>

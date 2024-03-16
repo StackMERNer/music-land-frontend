@@ -3,9 +3,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AddedProduct } from "../../hooks/useCart";
-import usePlaceOrder, { Order } from "../../hooks/usePlaceOrder";
+import usePlaceOrder from "../../hooks/usePlaceOrder";
 import useUser from "../../hooks/useUser";
 import { auth } from "../../services/firebase";
+import { Order } from "../../hooks/useOrders";
 
 const Cart = ({ items }: { items: AddedProduct[] }) => {
   const calculateTotal = (items: AddedProduct[]) => {
@@ -23,16 +24,18 @@ const Cart = ({ items }: { items: AddedProduct[] }) => {
       return;
     }
     const order: Order = {
-      customer: {
-        id: user._id,
+      customerId: user._id,
+      customerCurrentInfo: {
         name: user.name,
         phone: user.phone,
         email: user.email,
         address: user.address,
       },
-      cart: items,
+      items: items,
     };
+
     const result = await placeOrder(order);
+    console.log("result", result);
   };
 
   if (error) {
@@ -45,7 +48,7 @@ const Cart = ({ items }: { items: AddedProduct[] }) => {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex justify-between w-full gap-3 border border-gray-400 p-4 rounded-lg max-w-[400px]"
+            className="flex justify-between w-full gap-3 border border-gray-400 p-4 rounded max-w-[400px]"
           >
             <img className="w-[100px]" src={item.image} alt="" />
             <div className="flex flex-col justify-between">
