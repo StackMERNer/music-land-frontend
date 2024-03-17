@@ -23,7 +23,7 @@ const Instruments = () => {
   return (
     <section className="container mx-auto p-5 min-h-screen">
     
-      <div className="grid grid-cols-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
         {instruments.map((instrument, index) => (
           <InstrumentCard instrumentObj={instrument} key={index} />
         ))}

@@ -31,7 +31,7 @@ const InstrumentDetails = () => {
   };
   const { reviews } = useReviews();
   return (
-    <div className="container mx-auto flex justify-center min-h-screen pt-5 pb-3 gap-4 ">
+    <div className="container mx-auto flex flex-col md:flex-row items-center justify-center min-h-screen pt-5 pb-3 gap-4 ">
       {instrument && (
         <InstrumentDetailsCard addToCart={addToCard} instrument={instrument} />
       )}
