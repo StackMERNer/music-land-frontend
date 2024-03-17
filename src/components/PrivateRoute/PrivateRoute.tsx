@@ -7,7 +7,7 @@ import { auth } from "../../services/firebase";
 const PrivateRoute = ({ children }: { children: ReactNode }) => {
   const [userState] = useAuthState(auth);
 //   const { user } = useUser(userState?.uid ?? "");
-
+  console.log(userState);
   if (!userState) {
     return (
       <Navigate
